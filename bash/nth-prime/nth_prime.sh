@@ -13,15 +13,9 @@ main() {
 		NUM=$(($NUM+$INC))
 		for (( NUMBER=2; NUMBER<NUM; NUMBER++))
 		do
-			if [[ $((NUM%NUMBER)) -eq 0 ]]
-			then
-				((CNT++))
-			fi
+			[[ $((NUM%NUMBER)) -eq 0 ]] && ((CNT++))
 		done
-		if [[ $CNT ==  0 ]]
-		then
-			((LST_CNT++))
-		fi
+		[[ $CNT ==  0 ]] && ((LST_CNT++))
 	done
 	echo "$NUM"
 }
