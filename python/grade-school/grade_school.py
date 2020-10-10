@@ -1,12 +1,23 @@
 class School:
     def __init__(self):
-        self.student = []
+        self.student = {}
 
-    def add_student(self, name, grade): #dictionary data type
-        self.student.append({'name':name, 'grade':grade})
-
+    def add_student(self, name, grade):
+        if grade not in self.student.keys():
+            self.student[grade] = [name]
+        else:
+            self.student[grade].append(name)
+    
     def roster(self):
-        return [for name in students.values()]
+        result = []
+        for grades in sorted(self.student.keys()):
+            for names in sorted(self.student[grades]):
+                result.append(names)
+        return result
 
     def grade(self, grade_number):
-        pass
+        if grade_number in self.student.keys():
+            return sorted(self.student[grade_number])
+        else:
+            return []
+
