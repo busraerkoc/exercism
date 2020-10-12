@@ -1,5 +1,8 @@
+import re
+from collections import Counter
 def count_words(sentence):
-	for word in sentence:
-		word = word.lower()
-		if word.isalpha():
-			return """"{}":{}""".format(word, word.count)
+    sentence = sentence.replace("_", " ")
+    sentence = sentence.replace(",", " ")
+    sentence = sentence.lower().split()
+    words = [word.strip(",'.:!@%&^!$") for word in sentence]
+    return Counter(words)
