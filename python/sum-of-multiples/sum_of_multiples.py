@@ -3,5 +3,6 @@ def sum_of_multiples(limit, multiples):
     for multiple in multiples:
         if multiple > 0:
             for i in range(multiple,limit, multiple):
-                result.append(i)
+                if i not in result:
+                    result.append(i)
     return sum(result)
